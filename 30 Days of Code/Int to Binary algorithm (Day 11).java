@@ -8,18 +8,28 @@ public class Solution
 {
     public static void main(String[] args) 
     {
-        Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        for(int test = 0; test < t; test++)
+        int[] arr = [1, 4, 9, 2, 3, 10, 14, 5, 6];
+        boolean swapped =  true;
+        int i = 0, temp;
+        while(swapped)
         {
-            int num = in.nextInt();
-            StringBuilder out = new StringBuilder();
-            while(num > 0)
-            {
-                out.append(num%2);
-                num/=2;
-            }
-            System.out.println(out.reverse());
+        	swapped = false;
+        	i++;
+        	for(int j = 0; j < arr.length - i; j++)
+        	{
+        		if(arr[j] > arr[j+1])
+        		{
+        			temp = arr[j];
+        			arr[j] = arr[j+1];
+        			i++;
+        			swapped = true;
+        		}
+        	}
+        }
+
+        for(int i = 0; i < arr.length; i++)
+        {
+        	System.out.print(arr[i] + " ");
         }
     }
 }
